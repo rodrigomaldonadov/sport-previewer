@@ -1,0 +1,29 @@
+import type { Metadata } from "next";
+import { Oswald, Space_Grotesk } from "next/font/google";
+import "./globals.css";
+
+const oswald = Oswald({
+  variable: "--font-oswald",
+  subsets: ["latin"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Octagon Pulse",
+  description: "Live combat sports telemetry and analysis",
+};
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
+  return (
+    <html
+      lang="es"
+      className={`${oswald.variable} ${spaceGrotesk.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">{children}</body>
+    </html>
+  );
+}
